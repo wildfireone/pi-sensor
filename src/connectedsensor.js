@@ -56,12 +56,13 @@ mqttClient.on('connect', () => {
 This function controls sending data to the server
 */
 function startStream() {
-  //set up a variable for the temperature
-  var temp = 0;
+  streamInterval = setInterval(working, msFrequency);
+}
 
+function working(){
 
-  streamInterval = setInterval(function() {
-
+    //set up a variable for the temperature
+    var temp = 0;
     /* Prepare random data */
     temp = returnRandomFloat(30, 50);
 
@@ -70,8 +71,6 @@ function startStream() {
       "value": temp
     }));
 
-
-  }, msFrequency);
 }
 
 function returnRandomFloat(min, max) {
