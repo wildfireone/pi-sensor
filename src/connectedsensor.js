@@ -89,7 +89,7 @@ function working(){
       mqttClient.publish(deviceTelemetery, JSON.stringify({
         "values":{
           "update":{
-            "series":[temp]]
+            "series":[[temp]]
           }
         }
       }));
