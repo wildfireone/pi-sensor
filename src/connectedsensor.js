@@ -49,7 +49,7 @@ mqttClient.on('connect', () => {
           "units": "C",
           "values": {
             "labels": [1],
-            "series":[[0]],
+            "series":[tempArray],
             "update":null
           },
           "max":10,
@@ -91,6 +91,8 @@ function working(){
       /* Publish data to the display server */
       mqttClient.publish(deviceTelemetery, JSON.stringify({
         "values":{
+          "labels":null,
+          "series":null,
           "update":{
             "labels":[tempArray.length],
             "series":[[tempArray]]
