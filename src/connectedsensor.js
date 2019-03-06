@@ -88,10 +88,8 @@ label = label++;
       /* Publish data to the display server */
       mqttClient.publish(deviceTelemetery, JSON.stringify({
         "values":{
-          "labels":null,
-          "series":null,
           "update":{
-            "labels":[label],
+            "labels":[5],
             "series":[[temp]]
           }
         }
