@@ -48,7 +48,7 @@ mqttClient.on('connect', () => {
           "units": "C",
           "values": {
             "value": 39
-          },
+          }
         }
       },
       "description": "Johns test device",
