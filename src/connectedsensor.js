@@ -31,7 +31,7 @@ var deviceTelemetery = '/outbox/' + devicename + '/temperature';
 var streamInterval;
 var msFrequency = 200;
 var tempArray =[];
-temp.push(0);
+tempArray.push(0);
 /*
 This bloc of code sets up the type of dispay we will see on the server and starts the connection
 */
