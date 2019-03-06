@@ -87,7 +87,11 @@ function working(){
       //matrix.showMessage(temp + ".C", 0.5, [0, 100, 255], [150, 150, 0])
       /* Publish data to the display server */
       mqttClient.publish(deviceTelemetery, JSON.stringify({
-        "value": temp
+        "values":{
+          "update"{
+            "series":[temp]]
+          }
+        }
       }));
 
     });
