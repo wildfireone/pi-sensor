@@ -21,7 +21,7 @@ streamInterval = setInterval(working, msFrequency);
 
 //the function to perfrom!
 function working() {
-  //asks the sensord device for some data
+  //asks the sensor device for some data
   IMU.getValue((err, data) => {
     if (err !== null) {
       console.error("Could not read sensor data: ", err);

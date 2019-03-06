@@ -3,9 +3,15 @@
  * @Date:   04-Mar-192019
  * @Filename: app.js
  * @Last modified by:   john
- * @Last modified time: 05-Mar-192019
+ * @Last modified time: 06-Mar-192019
  */
 
+
+ //connects us to the sensor device
+ const imu = require("node-sense-hat").Imu;
+ //connects our Pi to the LED Matrix
+ const matrix = require('node-sense-hat').Leds;
+ const IMU = new imu.IMU();
 
 //these two lines set up the connection to our displaye server
 const mqtt = require('mqtt')
@@ -65,11 +71,22 @@ function working(){
     var temp = 0;
     /* Prepare random data */
     temp = returnRandomFloat(30, 50);
+    //asks the sensor device for some data
+    IMU.getValue((err, data) => {
+      if (err !== null) {
+        console.error("Could not read sensor data: ", err);
+        return;
+      }
 
-    /* Publish data to the display server */
-    mqttClient.publish(deviceTelemetery, JSON.stringify({
-      "value": temp
-    }));
+      var temp = Math.round(data.temperature);
+      matrix.showMessage(temp + ".C", 0.5, [0, 100, 255], [150, 150, 0])
+      /* Publish data to the display server */
+      mqttClient.publish(deviceTelemetery, JSON.stringify({
+        "value": temp
+      }));
+
+    });
+
 
 }
 
