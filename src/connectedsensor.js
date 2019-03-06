@@ -108,7 +108,7 @@ function working(){
 }
 
 function returnRandomFloat(min, max) {
-  return (Math.random() * (max - min) + min).toFixed(2);
+  return parseInt((Math.random() * (max - min) + min).toFixed(2));
 }
 
 //this block of code handles disconnecting
