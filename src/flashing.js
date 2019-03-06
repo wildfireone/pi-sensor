@@ -3,7 +3,7 @@
  * @Date:   05-Mar-192019
  * @Filename: lights.js
  * @Last modified by:   john
- * @Last modified time: 05-Mar-192019
+ * @Last modified time: 06-Mar-192019
  */
 
  //connects our Pi to the LED Matrix
@@ -31,5 +31,5 @@
 
 //function to return a random number
  function returnRandom(min, max) {
-   return parseInt(Math.random() * (max - min) + min).toFixed(0));
+   return parseInt((Math.random() * (max - min) + min).toFixed(0));
  }
