@@ -88,7 +88,10 @@ function working(){
       /* Publish data to the display server */
       mqttClient.publish(deviceTelemetery, JSON.stringify({
         "values":{
+          "lables":null,
+          "series":null
           "update":{
+            "lables":[2],
             "series":[[temp]]
           }
         }
