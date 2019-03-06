@@ -15,7 +15,7 @@
 
 //these two lines set up the connection to our displaye server
 const mqtt = require('mqtt')
-const mqttClient = mqtt.connect('mqtt://10.85.32.193:1883')
+const mqttClient = mqtt.connect('mqtt://10.85.65.22:1883')
 
 //these two lines define our devices name and a topic for the display server
 const devicename = "testDevice"
