@@ -25,7 +25,7 @@ const topic = "temperature"
 //this is just so we dont have to keep typing them in
 var deviceInfoIn = '/inbox/' + devicename + '/deviceInfo';
 var deviceInfoOut = '/outbox/' + devicename + '/deviceInfo';
-var deviceTelemetery = '/outbox/' + devicename + '/deviceInfo';
+var deviceTelemetery = '/outbox/' + devicename + '/temperature';
 
 //here we set how fast the stream is, (how often the data is pushed to the display server)
 var streamInterval;
