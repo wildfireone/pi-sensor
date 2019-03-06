@@ -14,7 +14,7 @@ const matrix = require('node-sense-hat').Leds;
 const IMU = new imu.IMU();
 
 //set a value
- const msFrequency = 1000;
+ const msFrequency = 5000;
 
 //sets up some code to repeat at a given interval
 streamInterval = setInterval(working, msFrequency);
