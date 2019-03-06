@@ -3,7 +3,7 @@
  * @Date:   05-Mar-192019
  * @Filename: drawingsensor.js
  * @Last modified by:   john
- * @Last modified time: 05-Mar-192019
+ * @Last modified time: 06-Mar-192019
  */
 
 //connects us to the sensor device
@@ -14,7 +14,7 @@ const matrix = require('node-sense-hat').Leds;
 const IMU = new imu.IMU();
 
 //set a value
- const msFrequency = 200;
+ const msFrequency = 1000;
 
 //sets up some code to repeat at a given interval
 streamInterval = setInterval(working, msFrequency);

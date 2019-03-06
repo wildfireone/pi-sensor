@@ -23,4 +23,5 @@
 
    var temp = Math.round(data.temperature);
 
+
  });
