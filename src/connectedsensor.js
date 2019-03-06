@@ -71,11 +71,22 @@ function working(){
     var temp = 0;
     /* Prepare random data */
     temp = returnRandomFloat(30, 50);
-    
+    //asks the sensor device for some data
+    IMU.getValue((err, data) => {
+      if (err !== null) {
+        console.error("Could not read sensor data: ", err);
+        return;
+      }
 
-    mqttClient.publish(deviceTelemetery, JSON.stringify({
-      "value": temp
-    }));
+      temp = Math.round(data.temperature);
+      //matrix.showMessage(temp + ".C", 0.5, [0, 100, 255], [150, 150, 0])
+      /* Publish data to the display server */
+      mqttClient.publish(deviceTelemetery, JSON.stringify({
+        "value": temp
+      }));
+
+    });
+
 
 
 
