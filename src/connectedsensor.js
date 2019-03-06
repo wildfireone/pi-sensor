@@ -91,7 +91,7 @@ label = label++;
           "labels":null,
           "series":null,
           "update":{
-            "labels":[lable],
+            "labels":[label],
             "series":[[temp]]
           }
         }
