@@ -30,8 +30,7 @@ var deviceTelemetery = '/outbox/' + devicename + '/temperature';
 //here we set how fast the stream is, (how often the data is pushed to the display server)
 var streamInterval;
 var msFrequency = 200;
-var tempArray =[];
-tempArray.push(0);
+
 /*
 This bloc of code sets up the type of dispay we will see on the server and starts the connection
 */
@@ -45,16 +44,11 @@ mqttClient.on('connect', () => {
       "endPoints": {
         "temperature": {
           "title": "Sensor Temp",
-          "card-type": "crouton-chart-line",
+          "card-type": "crouton-simple-text",
           "units": "C",
           "values": {
-            "labels": [1],
-            "series":[tempArray],
-            "update":null
-          },
-          "max":10,
-          "low":10,
-          "max":50
+            "value": 39
+          }
         }
       },
       "description": "Johns test device",
@@ -84,20 +78,11 @@ function working(){
         return;
       }
 
-
       temp = Math.round(data.temperature);
-      tempArray.push(temp);
       //matrix.showMessage(temp + ".C", 0.5, [0, 100, 255], [150, 150, 0])
       /* Publish data to the display server */
       mqttClient.publish(deviceTelemetery, JSON.stringify({
-        "values":{
-          "labels":null,
-          "series":null,
-          "update":{
-            "labels":[tempArray.length],
-            "series":[[tempArray]]
-          }
-        }
+        "value": temp
       }));
 
     });
@@ -108,7 +93,7 @@ function working(){
 }
 
 function returnRandomFloat(min, max) {
-  return parseInt((Math.random() * (max - min) + min).toFixed(2));
+  return (Math.random() * (max - min) + min).toFixed(2);
 }
 
 //this block of code handles disconnecting
