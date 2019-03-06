@@ -29,6 +29,7 @@ function working() {
     }
 
     var temp = Math.round(data.temperature);
+    matrix.clear();
     matrix.showMessage(temp + ".C", 0.5, [0, 100, 255], [150, 150, 0])
   });
 
