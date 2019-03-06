@@ -44,7 +44,7 @@ mqttClient.on('connect', () => {
       "endPoints": {
         "temperature": {
           "title": "Sensor Temp"+devicename,
-          "card-type": "crouton-chart-line,
+          "card-type": "crouton-chart-line",
           "units": "C",
           "values": {
             "labels": [1],
