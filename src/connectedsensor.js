@@ -78,7 +78,7 @@ function working(){
         return;
       }
 
-      temp = Math.round(data.temperature);
+      temp = returnRandomFloat(0,10);
       //matrix.showMessage(temp + ".C", 0.5, [0, 100, 255], [150, 150, 0])
       /* Publish data to the display server */
       mqttClient.publish(deviceTelemetery, JSON.stringify({
