@@ -30,7 +30,8 @@ var deviceTelemetery = '/outbox/' + devicename + '/temperature';
 //here we set how fast the stream is, (how often the data is pushed to the display server)
 var streamInterval;
 var msFrequency = 200;
-var label =1;
+var tempArray =[];
+temp.push(0);
 /*
 This bloc of code sets up the type of dispay we will see on the server and starts the connection
 */
@@ -82,15 +83,17 @@ function working(){
         console.error("Could not read sensor data: ", err);
         return;
       }
-label = label++;
+
+
       temp = Math.round(data.temperature);
+      tempArray.push(temp);
       //matrix.showMessage(temp + ".C", 0.5, [0, 100, 255], [150, 150, 0])
       /* Publish data to the display server */
       mqttClient.publish(deviceTelemetery, JSON.stringify({
         "values":{
           "update":{
-            "labels":[5],
-            "series":[[temp]]
+            "labels":[tempArray.length],
+            "series":[[tempArray]]
           }
         }
       }));
