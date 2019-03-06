@@ -70,22 +70,14 @@ function working(){
     //set up a variable for the temperature
     var temp = 0;
     /* Prepare random data */
-    temp = returnRandomFloat(30, 50);
-    //asks the sensor device for some data
-    IMU.getValue((err, data) => {
-      if (err !== null) {
-        console.error("Could not read sensor data: ", err);
-        return;
-      }
-
-      temp = returnRandomFloat(0,10);
+    temp = returnRandomFloat(0,10);
       //matrix.showMessage(temp + ".C", 0.5, [0, 100, 255], [150, 150, 0])
       /* Publish data to the display server */
       mqttClient.publish(deviceTelemetery, JSON.stringify({
         "value": temp
       }));
 
-    });
+
 
 
 
