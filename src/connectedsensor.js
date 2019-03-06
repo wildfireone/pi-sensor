@@ -30,7 +30,7 @@ var deviceTelemetery = '/outbox/' + devicename + '/temperature';
 //here we set how fast the stream is, (how often the data is pushed to the display server)
 var streamInterval;
 var msFrequency = 200;
-
+var lable =1;
 /*
 This bloc of code sets up the type of dispay we will see on the server and starts the connection
 */
@@ -82,7 +82,7 @@ function working(){
         console.error("Could not read sensor data: ", err);
         return;
       }
-
+lable = lable++;
       temp = Math.round(data.temperature);
       //matrix.showMessage(temp + ".C", 0.5, [0, 100, 255], [150, 150, 0])
       /* Publish data to the display server */
@@ -91,7 +91,7 @@ function working(){
           "lables":null,
           "series":null,
           "update":{
-            "lables":[2],
+            "lables":[lable],
             "series":[[temp]]
           }
         }
