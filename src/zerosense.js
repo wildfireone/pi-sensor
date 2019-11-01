@@ -9,7 +9,7 @@
 
 //these two lines set up the connection to our displaye server
 const mqtt = require('mqtt')
-const mqttClient = mqtt.connect('mqtt://10.85.65.22:1883')
+const mqttClient = mqtt.connect('mqtt://rg-n432-jpi.rgu.ac.uk:1883')
 
 var sensor = require("node-dht-sensor");
 var os = require('os');
