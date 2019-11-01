@@ -85,7 +85,7 @@ function working(){
   if (!err) {
       temp=temperature;
       humid=humidity
-    console.log(`temp: ${temperature}°C, humidity: ${humidity}%`);
+    console.log('temp: ${temperature}°C, humidity: ${humidity}%');
      /* Publish data to the display server */
       mqttClient.publish(deviceTemp, JSON.stringify({
         "value": temp
