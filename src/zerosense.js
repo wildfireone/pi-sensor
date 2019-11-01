@@ -36,6 +36,7 @@ This bloc of code sets up the type of dispay we will see on the server and start
 */
 mqttClient.on('connect', () => {
   console.log('Mqtt connected.')
+ consoel.log(devicename)
   mqttClient.subscribe(deviceInfoIn); //subscribe
   mqttClient.subscribe(deviceTemp); //subscribe
  mqttClient.subscribe(deviceHumid); //subscribe
@@ -92,6 +93,8 @@ function working(){
       mqttClient.publish(deviceHumid, JSON.stringify({
         "value": humid
       }));
+  }else{
+   console.log(err);
   }
 });
       
