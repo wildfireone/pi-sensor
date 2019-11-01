@@ -11,10 +11,12 @@
 const mqtt = require('mqtt')
 const mqttClient = mqtt.connect('mqtt://rg-n432-jpi.rgu.ac.uk:1883')
 
-var sensor = require("node-dht-sensor");
+
 var os = require('os');
  
-
+var rpiDhtSensor = require('rpi-dht-sensor');
+ 
+var dht = new rpiDhtSensor.DHT11(7);
 
 //these two lines define our devices name and a topic for the display server
 const devicename = os.hostname()
@@ -83,15 +85,9 @@ function startStream() {
 }
 
 function working(){
-
-    //set up a variable for the temperature
-    var temp = 0;
-    var humid =0;
-    sensor.read(11, 7, function(err, temperature, humidity) {
-  if (!err) {
-      temp=temperature;
-      humid=humidity
-    console.log('temp: ${temperature}°C, humidity: ${humidity}%');
+    var readout = dht.read();
+    var temp = readout.temperature.toFixed(2);
+    var humid =readout.humidity.toFixed(2);
      /* Publish data to the display server */
       mqttClient.publish(deviceTemp, JSON.stringify({
         "value": temp
@@ -99,9 +95,6 @@ function working(){
       mqttClient.publish(deviceHumid, JSON.stringify({
         "value": humid
       }));
-  }else{
-   console.log(err);
-  }
 });
       
      
