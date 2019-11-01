@@ -33,11 +33,6 @@ var deviceHumid = '/outbox/' + devicename + '/humidity';
 var streamInterval;
 var msFrequency = 200;
 
-sensor.read(11, 7, function(err, temperature, humidity) {
-
-     
-    console.log('temp: ${temperature}°C, humidity: ${humidity}%');
-});
 
 /*
 This bloc of code sets up the type of dispay we will see on the server and starts the connection
