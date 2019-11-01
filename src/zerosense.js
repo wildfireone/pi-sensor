@@ -83,6 +83,7 @@ function working(){
     var readout = dht.read();
     var temp = readout.temperature.toFixed(2);
     var humid =readout.humidity.toFixed(2);
+ console.log(temp+":"+humid);
      /* Publish data to the display server */
       mqttClient.publish(deviceTemp, JSON.stringify({
         "value": temp
