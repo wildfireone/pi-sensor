@@ -36,7 +36,7 @@ This bloc of code sets up the type of dispay we will see on the server and start
 */
 mqttClient.on('connect', () => {
   console.log('Mqtt connected.')
- consoel.log(devicename)
+ console.log(devicename)
   mqttClient.subscribe(deviceInfoIn); //subscribe
   mqttClient.subscribe(deviceTemp); //subscribe
  mqttClient.subscribe(deviceHumid); //subscribe
