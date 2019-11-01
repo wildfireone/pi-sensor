@@ -6,4 +6,6 @@ sudo cp -r node-v9.7.1-linux-armv6l/* /usr/local/
 node -v
 npm -v
 sudo apt-get install git
+sudo nano /etc/hostname
+
 
