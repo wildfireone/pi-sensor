@@ -95,7 +95,6 @@ function working(){
       mqttClient.publish(deviceHumid, JSON.stringify({
         "value": humid
       }));
-});
       
      
 
