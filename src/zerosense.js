@@ -106,6 +106,7 @@ function returnRandomFloat(min, max) {
 //this block of code handles disconnecting
 mqttClient.on('offline', () => {
   console.log('Mqtt offline.')
-  mqttClient.unsubscribe(deviceTelemetery);
+  mqttClient.unsubscribe(deviceTemp);
+  mqttClient.unsubscribe(deviceHumid;
   clearInterval(streamInterval);
 })
