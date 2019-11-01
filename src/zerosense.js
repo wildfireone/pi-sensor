@@ -107,6 +107,6 @@ function returnRandomFloat(min, max) {
 mqttClient.on('offline', () => {
   console.log('Mqtt offline.')
   mqttClient.unsubscribe(deviceTemp);
-  mqttClient.unsubscribe(deviceHumid;
+  mqttClient.unsubscribe(deviceHumid);
   clearInterval(streamInterval);
 })
