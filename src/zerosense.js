@@ -32,7 +32,7 @@ var streamInterval;
 var msFrequency = 200;
 
 sensor.read(11, 7, function(err, temperature, humidity) {
-  if (!err) {
+
      
     console.log('temp: ${temperature}°C, humidity: ${humidity}%');
 }
