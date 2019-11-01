@@ -16,7 +16,7 @@ var os = require('os');
  
 var rpiDhtSensor = require('rpi-dht-sensor');
  
-var dht = new rpiDhtSensor.DHT11(7);
+var dht = new rpiDhtSensor.DHT11(3);
 
 //these two lines define our devices name and a topic for the display server
 const devicename = os.hostname()
