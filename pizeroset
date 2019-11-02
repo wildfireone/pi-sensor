@@ -5,7 +5,17 @@ tar -xzf node-v9.7.1-linux-armv6l.tar.gz
 sudo cp -r node-v9.7.1-linux-armv6l/* /usr/local/
 node -v
 npm -v
-sudo apt-get install git
+sudo apt-get --assume-yes install git
+
+git clone https://github.com/wildfireone/pi-sensor.git
+cd pi-sensor/
+npm install rpi-dht-sensor
+
+
 sudo nano /etc/hostname
+
+
+sudo nano /etc/rc.local
+su pi -c 'sudo node /home/pi/pi-sensor/src/zerosense.js < /dev/null &'
 
 
